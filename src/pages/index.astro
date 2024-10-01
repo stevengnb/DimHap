@@ -1,0 +1,45 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro'; 
+import logo from '../lib/images/dimhap.png';
+
+import product1 from '../lib/images/hakau2.png';
+import product2 from '../lib/images/pangsit2.png';
+import product3 from '../lib/images/siomay2.png';
+import product4 from '../lib/images/lumpia2.png';
+import product5 from '../lib/images/wonton2.png';
+import product6 from '../lib/images/bakpao.png';
+
+const cards = [
+{ title: 'Hakau', price: 6000, img: product1 },
+{ title: 'Pangsit', price: 6000, img: product2 },
+{ title: 'Siomay', price: 6000, img: product3 },
+{ title: 'Lumpia', price: 6000, img: product4 },
+{ title: 'Wonton', price: 6000, img: product5 },
+{ title: 'Bakpao', price: 6000, img: product6 }
+];
+---
+
+<Layout title="DimHap">
+	<div class="w-screen min-h-screen bg-[#cca062] flex flex-col items-center p-4 md:p-7 gap-4 md:gap-5">
+		<div class="w-full h-1/4 flex justify-center">
+			<Image src={logo} alt="Sample Image" class="w-96 object-contain" />
+		</div>
+		<div class="w-full h-3/4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 font-afacadflux font-semibold">
+			{cards.map((card) => (
+				<a href="https://www.instagram.com/dimhap.id/" target="_blank" rel="noopener noreferrer" class="card p-6 h-[280px] bg-[#FDEDD3] rounded-lg text-center hover:scale-105 duration-300 transition-all hover:cursor-pointer">
+					<div class="h-4/5">
+						<Image src={card.img} alt="Sample Image" class="h-full object-contain bg-transparent" />
+					</div>
+					<div class="h-1/5 flex gap-2 justify-center items-center text-xl lg:text-2xl">
+						<p>{card.title}</p>
+					</div>
+				</a>
+			))}
+		</div>
+	</div>
+</Layout>
+
+<style>
+	
+</style>
